@@ -1,6 +1,4 @@
-#ifndef TECHNICCRAFT_TEXTURE2D_HPP
-#define TECHNICCRAFT_TEXTURE2D_HPP
-
+#pragma once
 #include "Texture.h"
 #include "glad/glad.h"
 
@@ -60,4 +58,3 @@ namespace t3d::openGl
         }
     };
 }
-#endif //TECHNICCRAFT_TEXTURE2D_HPP

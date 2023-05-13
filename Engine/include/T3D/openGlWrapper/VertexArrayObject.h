@@ -1,6 +1,4 @@
-#ifndef TECHNICCRAFT_VERTEXARRAYOBJECT_HPP
-#define TECHNICCRAFT_VERTEXARRAYOBJECT_HPP
-
+#pragma once
 #include "OpenGlObject.h"
 #include "VertexBuffer.h"
 #include "IndexBuffer.h"
@@ -114,6 +112,4 @@ namespace t3d::openGl
         }
     };
 
-} // OpenGl
-
-#endif //TECHNICCRAFT_VERTEXARRAYOBJECT_HPP
+}

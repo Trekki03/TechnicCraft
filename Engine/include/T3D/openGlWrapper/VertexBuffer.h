@@ -1,6 +1,4 @@
-#ifndef TECHNICCRAFT_VERTEXBUFFER_HPP
-#define TECHNICCRAFT_VERTEXBUFFER_HPP
-
+#pragma once
 #include "OpenGlBuffer.h"
 #include "glad/glad.h"
 
@@ -51,6 +49,4 @@ namespace t3d::openGl
         }
     };
 
-} // T3D
-
-#endif //TECHNICCRAFT_VERTEXBUFFER_HPP
+}

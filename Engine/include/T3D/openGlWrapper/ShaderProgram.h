@@ -1,6 +1,4 @@
-#ifndef TECHNICCRAFT_SHADERPROGRAM_HPP
-#define TECHNICCRAFT_SHADERPROGRAM_HPP
-
+#pragma once
 #include <glad/glad.h>
 #include <glm/glm.hpp>
 #include "OpenGlObject.h"
@@ -241,4 +239,3 @@ namespace t3d::openGl
         int32_t GetUniformLocation(const char* location) const;
     };
 }
-#endif //TECHNICCRAFT_SHADERPROGRAM_HPP

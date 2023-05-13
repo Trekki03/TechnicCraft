@@ -1,6 +1,4 @@
-#ifndef TECHNICCRAFT_CAMERACONTROLLER_HPP
-#define TECHNICCRAFT_CAMERACONTROLLER_HPP
-
+#pragma once
 #include <vector>
 #include "Camera.h"
 
@@ -68,5 +66,3 @@ namespace t3d::openGlRender
     };
 
 }
-
-#endif //TECHNICCRAFT_CAMERACONTROLLER_HPP

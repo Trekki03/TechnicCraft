@@ -1,6 +1,4 @@
-#ifndef TECHNICCRAFT_OPENGLBUFFER_HPP
-#define TECHNICCRAFT_OPENGLBUFFER_HPP
-
+#pragma once
 #include "OpenGlObject.h"
 #include <cstdint>
 
@@ -46,4 +44,3 @@ namespace t3d::openGl
         }
     };
 }
-#endif //TECHNICCRAFT_OPENGLBUFFER_HPP

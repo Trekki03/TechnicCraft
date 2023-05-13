@@ -1,6 +1,4 @@
-#ifndef TECHNICCRAFT_CAMERA_HPP
-#define TECHNICCRAFT_CAMERA_HPP
-
+#pragma once
 #include "glm/glm.hpp"
 
 namespace t3d::openGlRender
@@ -155,5 +153,3 @@ namespace t3d::openGlRender
         [[nodiscard]] glm::vec3 GetPositionVector() const;
     };
 }
-
-#endif //TECHNICCRAFT_CAMERA_HPP

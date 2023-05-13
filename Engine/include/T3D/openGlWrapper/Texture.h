@@ -1,6 +1,4 @@
-#ifndef TECHNICCRAFT_TEXTURE_HPP
-#define TECHNICCRAFT_TEXTURE_HPP
-
+#pragma once
 #include "OpenGlObject.h"
 #include <cstdint>
 
@@ -24,5 +22,3 @@ namespace t3d::openGl
         virtual void GenerateMipmaps() const = 0;
     };
 }
-
-#endif //TECHNICCRAFT_TEXTURE_HPP

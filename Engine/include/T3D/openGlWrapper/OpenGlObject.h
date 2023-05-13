@@ -1,6 +1,4 @@
-#ifndef TECHNICCRAFT_OPENGLOBJECT_HPP
-#define TECHNICCRAFT_OPENGLOBJECT_HPP
-
+#pragma once
 #include <cstdint>
 
 namespace t3d::openGl
@@ -37,6 +35,4 @@ namespace t3d::openGl
         }
     };
 
-} // T3D
-
-#endif //TECHNICCRAFT_OPENGLOBJECT_HPP
+}
