@@ -10,7 +10,6 @@ namespace t3d::glfw
 		GLFWwindow* window;
 
 	public:
-			
-
+		
 	};
 }

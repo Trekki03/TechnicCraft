@@ -1,7 +1,7 @@
 ﻿#include <iostream>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-#include "T3D/glfw/inputHandling/KeyProcessing.h"
+#include "T3D/glfw/inputHandling/KeyHandler.h"
 #include "T3D/glfw/windowHandling/WindowProcessing.h"
 
 void handleTInput(bool pressed)
@@ -38,14 +38,15 @@ int main()
     }
     glfwSwapInterval(1);
 
-    std::cout << "Der Handler: " << t3d::glfw::GetKeyEventName(t3d::glfw::KEY_T) << " wurde f�r T gesetzt" << std::endl;
+    t3d::glfw::KeyHandler keyHandler{ window };
+    std::cout << "Der Handler: " << keyHandler.GetKeyEventName(t3d::glfw::KeyHandler::KeyCode::KEY_T) << " wurde f�r T gesetzt" << std::endl;
 
-    t3d::glfw::SetKeyEvent(t3d::glfw::KEY_T, &handleTInput, "T Handler");
-    std::cout << "Der Handler: " << t3d::glfw::GetKeyEventName(t3d::glfw::KEY_T) << " wurde f�r T gesetzt" << std::endl;
+    keyHandler.SetKeyEvent(t3d::glfw::KeyHandler::KeyCode::KEY_T, handleTInput, "T Handler");
+    std::cout << "Der Handler: " << keyHandler.GetKeyEventName(t3d::glfw::KeyHandler::KeyCode::KEY_T) << " wurde f�r T gesetzt" << std::endl;
 
     while (!glfwWindowShouldClose(window))
     {
-        t3d::glfw::ProcessKeyInput(window);
+        keyHandler.ProcessKeyInput();
 
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
