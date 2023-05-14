@@ -129,7 +129,7 @@ namespace t3d::openGl
          * @param transpose defines if the matrix should be transposed while loading it into the uniform
          * @param data data to be set
          */
-        void SetUniformMatrix2f(const char* location, bool transpose, const float* data) const;
+        void SetUniformMatrix2fv(const char* location, bool transpose, const float* data) const;
 
         /**
          * Sets data for a three by three float matrix uniform
@@ -137,7 +137,7 @@ namespace t3d::openGl
          * @param transpose defines if the matrix should be transposed while loading it into the uniform
          * @param data data to be set
          */
-        void SetUniformMatrix3f(const char* location, bool transpose, const float* data) const;
+        void SetUniformMatrix3fv(const char* location, bool transpose, const float* data) const;
 
         /**
          * Sets data for a four by four float matrix uniform
@@ -145,7 +145,7 @@ namespace t3d::openGl
          * @param transpose defines if the matrix should be transposed while loading it into the uniform
          * @param data data to be set
          */
-        void SetUniformMatrix4f(const char* location, bool transpose, const float* data) const;
+        void SetUniformMatrix4fv(const char* location, bool transpose, const float* data) const;
 
         /**
          * Sets data for a two by three float matrix uniform
@@ -153,7 +153,7 @@ namespace t3d::openGl
          * @param transpose defines if the matrix should be transposed while loading it into the uniform
          * @param data data to be set
          */
-        void SetUniformMatrix2x3f(const char* location, bool transpose, const float* data) const;
+        void SetUniformMatrix2x3fv(const char* location, bool transpose, const float* data) const;
 
         /**
          * Sets data for a three by two float matrix uniform
@@ -161,7 +161,7 @@ namespace t3d::openGl
          * @param transpose defines if the matrix should be transposed while loading it into the uniform
          * @param data data to be set
          */
-        void SetUniformMatrix3x2f(const char* location, bool transpose, const float* data) const;
+        void SetUniformMatrix3x2fv(const char* location, bool transpose, const float* data) const;
 
         /**
          * Sets data for a two by four float matrix uniform
@@ -169,7 +169,7 @@ namespace t3d::openGl
          * @param transpose defines if the matrix should be transposed while loading it into the uniform
          * @param data data to be set
          */
-        void SetUniformMatrix2x4f(const char* location, bool transpose, const float* data) const;
+        void SetUniformMatrix2x4fv(const char* location, bool transpose, const float* data) const;
 
         /**
          * Sets data for a four by two float matrix uniform
@@ -177,7 +177,7 @@ namespace t3d::openGl
          * @param transpose defines if the matrix should be transposed while loading it into the uniform
          * @param data data to be set
          */
-        void SetUniformMatrix4x2f(const char* location, bool transpose, const float* data) const;
+        void SetUniformMatrix4x2fv(const char* location, bool transpose, const float* data) const;
 
         /**
          * Sets data for a three by four float matrix uniform
@@ -185,7 +185,7 @@ namespace t3d::openGl
          * @param transpose defines if the matrix should be transposed while loading it into the uniform
          * @param data data to be set
          */
-        void SetUniformMatrix3x4f(const char* location, bool transpose, const float* data) const;
+        void SetUniformMatrix3x4fv(const char* location, bool transpose, const float* data) const;
 
         /**
          * Sets data for a four by three float matrix uniform
@@ -193,7 +193,7 @@ namespace t3d::openGl
          * @param transpose defines if the matrix should be transposed while loading it into the uniform
          * @param data data to be set
          */
-        void SetUniformMatrix4x3f(const char* location, bool transpose, const float* data) const;
+        void SetUniformMatrix4x3fv(const char* location, bool transpose, const float* data) const;
 
 
     private:

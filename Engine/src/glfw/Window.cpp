@@ -35,6 +35,11 @@ namespace t3d::glfw
 		glfwSwapBuffers(_window);
 	}
 
+	void Window::SetWindowShouldCloseFlag()
+	{
+		glfwSetWindowShouldClose(_window, true);
+	}
+
 	bool Window::GetWindowShouldCloseFlag()
 	{
 		return glfwWindowShouldClose(_window);

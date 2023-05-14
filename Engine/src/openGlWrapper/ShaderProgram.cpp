@@ -41,6 +41,7 @@ namespace t3d::openGl
         int32_t uniformLocation = GetUniformLocation(location);
         if(uniformLocation != -1)
         {
+            Bind();
             glUniform1f(uniformLocation, data);
         }
     }
@@ -50,6 +51,7 @@ namespace t3d::openGl
         int32_t uniformLocation = GetUniformLocation(location);
         if(uniformLocation != -1)
         {
+            Bind();
             glUniform2f(uniformLocation, data.x, data.y);
         }
     }
@@ -59,6 +61,7 @@ namespace t3d::openGl
         int32_t uniformLocation = GetUniformLocation(location);
         if(uniformLocation != -1)
         {
+            Bind();
             glUniform3f(uniformLocation, data.x, data.y, data.z);
         }
     }
@@ -68,6 +71,7 @@ namespace t3d::openGl
         int32_t uniformLocation = GetUniformLocation(location);
         if(uniformLocation != -1)
         {
+            Bind();
             glUniform4f(uniformLocation, data.x, data.y, data.z, data.w);
         }
     }
@@ -77,6 +81,7 @@ namespace t3d::openGl
         int32_t uniformLocation = GetUniformLocation(location);
         if(uniformLocation != -1)
         {
+            Bind();
             glUniform1i(uniformLocation, data);
         }
     }
@@ -86,6 +91,7 @@ namespace t3d::openGl
         int32_t uniformLocation = GetUniformLocation(location);
         if(uniformLocation != -1)
         {
+            Bind();
             glUniform2i(uniformLocation, data.x, data.y);
         }
     }
@@ -94,6 +100,7 @@ namespace t3d::openGl
         int32_t uniformLocation = GetUniformLocation(location);
         if(uniformLocation != -1)
         {
+            Bind();
             glUniform3i(uniformLocation, data.x, data.y, data.y);
         }
     }
@@ -103,6 +110,7 @@ namespace t3d::openGl
         int32_t uniformLocation = GetUniformLocation(location);
         if(uniformLocation != -1)
         {
+            Bind();
             glUniform4i(uniformLocation, data.x, data.y, data.y, data.w);
         }
     }
@@ -112,6 +120,7 @@ namespace t3d::openGl
         int32_t uniformLocation = GetUniformLocation(location);
         if(uniformLocation != -1)
         {
+            Bind();
             glUniform1ui(uniformLocation, data);
         }
     }
@@ -121,6 +130,7 @@ namespace t3d::openGl
         int32_t uniformLocation = GetUniformLocation(location);
         if(uniformLocation != -1)
         {
+            Bind();
             glUniform2ui(uniformLocation, data.x, data.y);
         }
     }
@@ -130,6 +140,7 @@ namespace t3d::openGl
         int32_t uniformLocation = GetUniformLocation(location);
         if(uniformLocation != -1)
         {
+            Bind();
             glUniform3ui(uniformLocation, data.x, data.y, data.z);
         }
     }
@@ -139,87 +150,97 @@ namespace t3d::openGl
         int32_t uniformLocation = GetUniformLocation(location);
         if(uniformLocation != -1)
         {
+            Bind();
             glUniform4ui(uniformLocation, data.x, data.y, data.z, data.w);
         }
     }
 
-    void ShaderProgram::SetUniformMatrix2f(const char* location, bool transpose, const float* data) const
+    void ShaderProgram::SetUniformMatrix2fv(const char* location, bool transpose, const float* data) const
     {
         int32_t uniformLocation = GetUniformLocation(location);
         if(uniformLocation != -1)
         {
+            Bind();
             glUniformMatrix2fv(uniformLocation, 1, transpose, data);
         }
     }
 
-    void ShaderProgram::SetUniformMatrix3f(const char* location, bool transpose, const float* data) const
+    void ShaderProgram::SetUniformMatrix3fv(const char* location, bool transpose, const float* data) const
     {
         int32_t uniformLocation = GetUniformLocation(location);
         if(uniformLocation != -1)
         {
+            Bind();
             glUniformMatrix3fv(uniformLocation, 1, transpose, data);
         }
     }
 
-    void ShaderProgram::SetUniformMatrix4f(const char* location, bool transpose, const float* data) const
+    void ShaderProgram::SetUniformMatrix4fv(const char* location, bool transpose, const float* data) const
     {
         int32_t uniformLocation = GetUniformLocation(location);
         if(uniformLocation != -1)
         {
+            Bind();
             glUniformMatrix4fv(uniformLocation, 1, transpose, data);
         }
     }
 
-    void ShaderProgram::SetUniformMatrix2x3f(const char* location, bool transpose, const float* data) const
+    void ShaderProgram::SetUniformMatrix2x3fv(const char* location, bool transpose, const float* data) const
     {
         int32_t uniformLocation = GetUniformLocation(location);
         if(uniformLocation != -1)
         {
+            Bind();
             glUniformMatrix2x3fv(uniformLocation, 1, transpose, data);
         }
     }
 
-    void ShaderProgram::SetUniformMatrix3x2f(const char* location, bool transpose, const float* data) const
+    void ShaderProgram::SetUniformMatrix3x2fv(const char* location, bool transpose, const float* data) const
     {
         int32_t uniformLocation = GetUniformLocation(location);
         if(uniformLocation != -1)
         {
+            Bind();
             glUniformMatrix3x2fv(uniformLocation, 1, transpose, data);
         }
     }
 
-    void ShaderProgram::SetUniformMatrix2x4f(const char* location, bool transpose, const float* data) const
+    void ShaderProgram::SetUniformMatrix2x4fv(const char* location, bool transpose, const float* data) const
     {
         int32_t uniformLocation = GetUniformLocation(location);
         if(uniformLocation != -1)
         {
+            Bind();
             glUniformMatrix2x4fv(uniformLocation, 1, transpose, data);
         }
     }
 
-    void ShaderProgram::SetUniformMatrix4x2f(const char* location, bool transpose, const float* data) const
+    void ShaderProgram::SetUniformMatrix4x2fv(const char* location, bool transpose, const float* data) const
     {
         int32_t uniformLocation = GetUniformLocation(location);
         if(uniformLocation != -1)
         {
+            Bind();
             glUniformMatrix4x2fv(uniformLocation, 1, transpose, data);
         }
     }
 
-    void ShaderProgram::SetUniformMatrix3x4f(const char* location, bool transpose, const float* data) const
+    void ShaderProgram::SetUniformMatrix3x4fv(const char* location, bool transpose, const float* data) const
     {
         int32_t uniformLocation = GetUniformLocation(location);
         if(uniformLocation != -1)
         {
+            Bind();
             glUniformMatrix3x4fv(uniformLocation, 1, transpose, data);
         }
     }
 
-    void ShaderProgram::SetUniformMatrix4x3f(const char* location, bool transpose, const float* data) const
+    void ShaderProgram::SetUniformMatrix4x3fv(const char* location, bool transpose, const float* data) const
     {
         int32_t uniformLocation = GetUniformLocation(location);
         if(uniformLocation != -1)
         {
+            Bind();
             glUniformMatrix4x3fv(uniformLocation, 1, transpose, data);
         }
     }

@@ -46,6 +46,11 @@ namespace t3d::glfw
 		void SwapBuffers();
 
 		/**
+		 * @brief Sets the glfwWindowShouldClose flag
+		*/
+		void SetWindowShouldCloseFlag();
+
+		/**
 		 * @brief Returns keyhandler linked to the window
 		 * @return keyhandler linked to the window
 		*/
@@ -56,5 +61,11 @@ namespace t3d::glfw
 		 * @return glfwWindowShouldClose value
 		*/
 		bool GetWindowShouldCloseFlag();
+
+		/**
+		 * @brief Returns underlying GLFWwindow
+		 * @return underlying GLFWwindow
+		*/
+		inline GLFWwindow* GetWindow() { return _window; }
 	};
 }

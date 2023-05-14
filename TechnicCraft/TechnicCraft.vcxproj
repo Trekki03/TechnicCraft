@@ -154,16 +154,33 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <None Include="res\shader\basic.frag" />
+    <None Include="res\shader\basic.vert" />
+    <None Include="res\shader\lightSource.frag" />
+    <None Include="res\textures\TextureAtlas.afphoto" />
     <None Include="vcpkg.json" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="res\placeholder.txt" />
+    <Text Include="res\textures\info.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Objects\BlockAtlas.cpp" />
+    <ClCompile Include="src\Objects\BlockManager.cpp" />
+    <ClCompile Include="src\Objects\Primitives.cpp" />
+    <ClCompile Include="src\WorldGen\Chunk.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\main.h" />
+    <ClInclude Include="include\Objects\BlockAtlas.h" />
+    <ClInclude Include="include\Objects\BlockManager.h" />
+    <ClInclude Include="include\Objects\Primitives.h" />
+    <ClInclude Include="include\WorldGen\Chunk.h" />
+    <ClInclude Include="src\Objects\BlockAtlas.h" />
+    <ClInclude Include="src\Objects\BlockManager.h" />
+    <ClInclude Include="src\Objects\Primitives.h" />
+    <ClInclude Include="src\WorldGen\Chunk.h" />
     <ClInclude Include="vcpkg_installed\x64-windows-static\x64-windows-static\include\EGL\egl.h" />
     <ClInclude Include="vcpkg_installed\x64-windows-static\x64-windows-static\include\EGL\eglext.h" />
     <ClInclude Include="vcpkg_installed\x64-windows-static\x64-windows-static\include\EGL\eglplatform.h" />
@@ -200,6 +217,11 @@
     <ProjectReference Include="..\Engine\Engine.vcxproj">
       <Project>{c9078728-b10d-4fab-bb23-d371ec104676}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\textures\box2.png" />
+    <Image Include="res\textures\box2_spec.png" />
+    <Image Include="res\textures\TextureAtlas.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

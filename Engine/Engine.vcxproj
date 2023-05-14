@@ -285,7 +285,6 @@
   <ItemGroup>
     <ClCompile Include="src\glfw\inputHandling\KeyHandler.cpp" />
     <ClCompile Include="src\glfw\Window.cpp" />
-    <ClCompile Include="src\glfw\windowHandling\windowProcessing.cpp" />
     <ClCompile Include="src\openGlRender\openGlCamera\Camera.cpp" />
     <ClCompile Include="src\openGlRender\openGlCamera\CameraController.cpp" />
     <ClCompile Include="src\openGlWrapper\IndexBuffer.cpp" />
@@ -300,7 +299,6 @@
   <ItemGroup>
     <ClInclude Include="include\T3D\glfw\inputHandling\KeyHandler.h" />
     <ClInclude Include="include\T3D\glfw\Window.h" />
-    <ClInclude Include="include\T3D\glfw\windowHandling\WindowProcessing.h" />
     <ClInclude Include="include\T3D\openGlRender\openGlCamera\Camera.h" />
     <ClInclude Include="include\T3D\openGlRender\openGlCamera\CameraController.h" />
     <ClInclude Include="include\T3D\openGlWrapper\IndexBuffer.h" />

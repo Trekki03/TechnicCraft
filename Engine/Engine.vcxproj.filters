@@ -429,9 +429,6 @@
     <ClCompile Include="src\glfw\inputHandling\KeyHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\glfw\windowHandling\windowProcessing.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\openGlRender\openGlCamera\Camera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -471,9 +468,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\T3D\glfw\Window.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\T3D\glfw\windowHandling\WindowProcessing.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\T3D\openGlRender\openGlCamera\Camera.h">

@@ -59,8 +59,8 @@ namespace t3d::openGl
 
     void Texture2D::SetTextureSlot(uint32_t textureSlot) const
     {
-        glActiveTexture(GL_TEXTURE0 + textureSlot);
         Bind();
+        glActiveTexture(GL_TEXTURE0 + textureSlot);
         Unbind();
     }
 }
