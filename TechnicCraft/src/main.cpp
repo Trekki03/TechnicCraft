@@ -2,7 +2,7 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include "T3D/glfw/inputHandling/KeyHandler.h"
-#include "T3D/glfw/windowHandling/WindowProcessing.h"
+#include "T3d/glfw/Window.h"
 
 void handleTInput(bool pressed)
 {
@@ -10,6 +10,11 @@ void handleTInput(bool pressed)
     {
         std::cout << "t pressed" << std::endl;
     }
+}
+
+void framebuffer_size_callback(GLFWwindow* window, int width, int height)
+{
+    glViewport(0, 0, width, height);
 }
 
 int main()
@@ -20,17 +25,7 @@ int main()
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    GLFWwindow* window = glfwCreateWindow(800, 600, "TechnicCraft", nullptr, nullptr);
-
-    if (window == nullptr)
-    {
-        std::cout << "Failed to create GLFW window" << std::endl;
-        glfwTerminate();
-        return -1;
-    }
-
-    glfwSetFramebufferSizeCallback(window, t3d::glfw::framebuffer_size_callback);
-    glfwMakeContextCurrent(window);
+    t3d::glfw::Window window("Test", 400, 400, nullptr, nullptr, framebuffer_size_callback);
 
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     {
@@ -38,20 +33,19 @@ int main()
     }
     glfwSwapInterval(1);
 
-    t3d::glfw::KeyHandler keyHandler{ window };
-    std::cout << "Der Handler: " << keyHandler.GetKeyEventName(t3d::glfw::KeyHandler::KeyCode::KEY_T) << " wurde f�r T gesetzt" << std::endl;
+    std::cout << "Der Handler: " << window.GetKeyHandler().GetKeyEventName(t3d::glfw::KeyHandler::KeyCode::KEY_T) << " wurde fuer T gesetzt" << std::endl;
 
-    keyHandler.SetKeyEvent(t3d::glfw::KeyHandler::KeyCode::KEY_T, handleTInput, "T Handler");
-    std::cout << "Der Handler: " << keyHandler.GetKeyEventName(t3d::glfw::KeyHandler::KeyCode::KEY_T) << " wurde f�r T gesetzt" << std::endl;
+    window.GetKeyHandler().SetKeyEvent(t3d::glfw::KeyHandler::KeyCode::KEY_T, handleTInput, "T Handler");
+    std::cout << "Der Handler: " << window.GetKeyHandler().GetKeyEventName(t3d::glfw::KeyHandler::KeyCode::KEY_T) << " wurde fuwr T gesetzt" << std::endl;
 
-    while (!glfwWindowShouldClose(window))
+    while (!window.GetWindowShouldCloseFlag())
     {
-        keyHandler.ProcessKeyInput();
+        window.Process();
 
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        glfwSwapBuffers(window);
+        window.SwapBuffers();
         glfwPollEvents();
     }
 }

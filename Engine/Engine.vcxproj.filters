@@ -462,12 +462,15 @@
     <ClCompile Include="vcpkg_installed\x64-windows\x64-windows\include\stb_vorbis.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\glfw\Window.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\T3D\glfw\inputHandling\KeyHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\T3D\glfw\windowHandling\Window.h">
+    <ClInclude Include="include\T3D\glfw\Window.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\T3D\glfw\windowHandling\WindowProcessing.h">
