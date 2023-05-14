@@ -15,15 +15,21 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="vcpkg.json" />
-    <None Include="res\shader\basic.frag" />
-    <None Include="res\shader\basic.vert" />
-    <None Include="res\shader\lightSource.frag" />
-    <None Include="res\textures\TextureAtlas.afphoto" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="res\placeholder.txt" />
-    <Text Include="res\textures\info.txt" />
+    <None Include="vcpkg.json">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\shader\basic.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\shader\lightSource.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\textures\TextureAtlas.afphoto">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\shader\basic.frag">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -44,111 +50,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\main.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="vcpkg_installed\x64-windows\x64-windows\include\GLFW\glfw3.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="vcpkg_installed\x64-windows\x64-windows\include\GLFW\glfw3native.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="vcpkg_installed\x64-windows-static\x64-windows-static\include\EGL\egl.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="vcpkg_installed\x64-windows-static\x64-windows-static\include\EGL\eglext.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="vcpkg_installed\x64-windows-static\x64-windows-static\include\EGL\eglplatform.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="vcpkg_installed\x64-windows-static\x64-windows-static\include\GL\glcorearb.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="vcpkg_installed\x64-windows-static\x64-windows-static\include\GL\glext.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="vcpkg_installed\x64-windows-static\x64-windows-static\include\GL\glxext.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="vcpkg_installed\x64-windows-static\x64-windows-static\include\GL\wgl.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="vcpkg_installed\x64-windows-static\x64-windows-static\include\GL\wglext.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="vcpkg_installed\x64-windows-static\x64-windows-static\include\glad\glad.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="vcpkg_installed\x64-windows-static\x64-windows-static\include\GLES\1.0\gl.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="vcpkg_installed\x64-windows-static\x64-windows-static\include\GLES\egl.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="vcpkg_installed\x64-windows-static\x64-windows-static\include\GLES\gl.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="vcpkg_installed\x64-windows-static\x64-windows-static\include\GLES\glext.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="vcpkg_installed\x64-windows-static\x64-windows-static\include\GLES\glplatform.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="vcpkg_installed\x64-windows-static\x64-windows-static\include\GLES2\gl2.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="vcpkg_installed\x64-windows-static\x64-windows-static\include\GLES2\gl2ext.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="vcpkg_installed\x64-windows-static\x64-windows-static\include\GLES2\gl2platform.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="vcpkg_installed\x64-windows-static\x64-windows-static\include\GLES3\gl3.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="vcpkg_installed\x64-windows-static\x64-windows-static\include\GLES3\gl3platform.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="vcpkg_installed\x64-windows-static\x64-windows-static\include\GLES3\gl31.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="vcpkg_installed\x64-windows-static\x64-windows-static\include\GLES3\gl32.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="vcpkg_installed\x64-windows-static\x64-windows-static\include\GLFW\glfw3.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="vcpkg_installed\x64-windows-static\x64-windows-static\include\GLFW\glfw3native.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="vcpkg_installed\x64-windows-static\x64-windows-static\include\GLSC\1.0\gl.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="vcpkg_installed\x64-windows-static\x64-windows-static\include\GLSC\1.0.1\gl.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="vcpkg_installed\x64-windows-static\x64-windows-static\include\GLSC2\gl2platform.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="vcpkg_installed\x64-windows-static\x64-windows-static\include\GLSC2\glsc2.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="vcpkg_installed\x64-windows-static\x64-windows-static\include\GLSC2\glsc2ext.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="vcpkg_installed\x64-windows-static\x64-windows-static\include\KHR\khrplatform.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Objects\BlockAtlas.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Objects\BlockManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Objects\Primitives.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\WorldGen\Chunk.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\WorldGen\Chunk.h">
@@ -174,5 +75,10 @@
     <Image Include="res\textures\TextureAtlas.jpg">
       <Filter>Resource Files</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="res\textures\info.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>
