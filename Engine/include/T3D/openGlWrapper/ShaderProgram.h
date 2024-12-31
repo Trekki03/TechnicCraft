@@ -19,6 +19,14 @@ namespace t3d::openGl
         ShaderProgram(const char* vertexShaderPath, const char* fragmentShaderPath);
 
         /**
+         * Creates an shader program with the shader sourcecode (vertex, geometry, fragment) from three source files.
+         * @param vertexShaderPath
+         * @param fragmentShaderPath
+         * @param geometryShaderPath
+         */
+        ShaderProgram(const char* vertexShaderPath, const char* fragmentShaderPath, const char* geometryShaderPath);
+
+        /**
          * Deletes the OpenGl program
          */
         ~ShaderProgram();
@@ -210,7 +218,7 @@ namespace t3d::openGl
          * compiles an opengl shader
          * @param shaderID opengl internal shader id
          */
-        static void CompileShader(uint32_t shaderID);
+        static void CompileShader(uint32_t shaderID, const char* shaderType);
 
         /**
          * @internal

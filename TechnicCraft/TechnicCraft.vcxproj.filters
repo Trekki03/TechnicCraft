@@ -30,6 +30,8 @@
     <None Include="res\shader\basic.frag">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="ClassDiagram.cd" />
+    <None Include="res\shader\basic.geom" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">

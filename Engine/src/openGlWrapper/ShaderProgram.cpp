@@ -16,12 +16,12 @@ namespace t3d::openGl
 
         uint32_t vertexShaderID = glCreateShader(GL_VERTEX_SHADER);
         SetShaderSource(vertexShaderID, vertexShaderSource.c_str());
-        CompileShader(vertexShaderID);
+        CompileShader(vertexShaderID, "Vertex Shader");
         AttachShader(vertexShaderID);
 
         uint32_t fragmentShaderID = glCreateShader(GL_FRAGMENT_SHADER);
         SetShaderSource(fragmentShaderID, fragmentShaderSource.c_str());
-        CompileShader(fragmentShaderID);
+        CompileShader(fragmentShaderID, "Fragment Shader");
         AttachShader(fragmentShaderID);
 
         LinkShader();
@@ -29,6 +29,37 @@ namespace t3d::openGl
         DeleteShader(vertexShaderID);
         DeleteShader(fragmentShaderID);
     }
+
+    ShaderProgram::ShaderProgram(const char* vertexShaderPath, const char* fragmentShaderPath, const char* geometryShaderPath)
+    {
+        std::string vertexShaderSource = t3d::util::GetStringFromFile(vertexShaderPath);
+        std::string fragmentShaderSource = t3d::util::GetStringFromFile(fragmentShaderPath);
+        std::string geometryShaderSource = t3d::util::GetStringFromFile(geometryShaderPath);
+
+        _objectID = glCreateProgram();
+
+        uint32_t vertexShaderID = glCreateShader(GL_VERTEX_SHADER);
+        SetShaderSource(vertexShaderID, vertexShaderSource.c_str());
+        CompileShader(vertexShaderID, "Vertex Shader");
+        AttachShader(vertexShaderID);
+
+        uint32_t fragmentShaderID = glCreateShader(GL_FRAGMENT_SHADER);
+        SetShaderSource(fragmentShaderID, fragmentShaderSource.c_str());
+        CompileShader(fragmentShaderID, "Fragement Shader");
+        AttachShader(fragmentShaderID);
+
+        uint32_t geometryShaderID = glCreateShader(GL_GEOMETRY_SHADER);
+        SetShaderSource(geometryShaderID, geometryShaderSource.c_str());
+        CompileShader(geometryShaderID, "Geometry Shader");
+        AttachShader(geometryShaderID);
+
+        LinkShader();
+
+        DeleteShader(vertexShaderID);
+        DeleteShader(fragmentShaderID);
+        DeleteShader(geometryShaderID);
+    }
+
 
     ShaderProgram::~ShaderProgram()
     {
@@ -251,7 +282,7 @@ namespace t3d::openGl
         glShaderSource(shaderID, 1, &shaderSrcString, nullptr);
     }
 
-    void ShaderProgram::CompileShader(uint32_t shaderID)
+    void ShaderProgram::CompileShader(uint32_t shaderID, const char* shaderType)
     {
         glCompileShader(shaderID);
         int32_t result;
@@ -261,7 +292,7 @@ namespace t3d::openGl
         {
             char log[512];
             glGetShaderInfoLog(shaderID, 512, nullptr, log);
-            std::cerr << "[Shader Compilation Error]:\n" << log << std::endl;
+            std::cerr << "[Shader Compilation Error]: " << shaderType << "\n" << log << std::endl;
         }
     }
 

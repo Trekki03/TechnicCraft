@@ -25,6 +25,7 @@ namespace game::world::object
         t3d::openGl::Texture2D blockAtlasTexture;
         std::map<uint8_t, block> blockAtlas;
         void addBlocks();
+
     public:
         BlockAtlas();
         glm::vec2 getSideTexPos(uint8_t blockID);
@@ -32,7 +33,7 @@ namespace game::world::object
         glm::vec2 getBottomTexPos(uint8_t blockID);
     };
 }
-
+ 
 
 
 

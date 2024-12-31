@@ -132,6 +132,7 @@ void scroll_callback(GLFWwindow* window, double xOffset, double yOffset)
 
 int main()
 {
+#pragma region Window Setup
     camController = t3d::openGlRender::CameraController();
     auto cam1 = camController.CreateCamera({ 40.0f, 250.0f, 0.5f }, 0.0f, -155.0f, 45.0f);
     camController.SetActiveCamera(cam1);
@@ -142,7 +143,7 @@ int main()
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    window = new t3d::glfw::Window("Test", 800, 600, nullptr, nullptr, FrameBufferSizeCallback);
+    window = new t3d::glfw::Window("Test", 1920, 1080, nullptr, nullptr, FrameBufferSizeCallback);
 
     window->GetKeyHandler().SetKeyEvent(t3d::glfw::KeyHandler::KeyCode::KEY_ESCAPE, HandleEscInput, "Close");
     window->GetKeyHandler().SetKeyEvent(t3d::glfw::KeyHandler::KeyCode::KEY_V, HandleVInput, "WireView");
@@ -154,7 +155,7 @@ int main()
     glfwSetInputMode(window->GetWindow(), GLFW_CURSOR, GLFW_CURSOR_DISABLED);
     glfwSetCursorPosCallback(window->GetWindow(), mouse_callback);
     glfwSetScrollCallback(window->GetWindow(), scroll_callback);
-    
+
 
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     {
@@ -163,26 +164,37 @@ int main()
     }
 
     while (((err = glGetError()) != GL_NO_ERROR)) {}
+    glEnable(GL_DEPTH_TEST);
+    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+#pragma endregion
+
     game::BlockManager manager;
 
-    t3d::openGl::ShaderProgram basicShader("res/shader/basic.vert", "res/shader/basic.frag");
+    t3d::openGl::ShaderProgram basicShader("res/shader/basic.vert", "res/shader/basic.frag", "res/shader/basic.geom");
     t3d::openGl::Texture2D diffuseMap("res/textures/TextureAtlas.jpg", GL_RGB, GL_RGB, GL_REPEAT, GL_REPEAT, GL_NEAREST,
                                  GL_NEAREST, false);
     t3d::openGl::Texture2D specularMap("res/textures/TextureAtlas.jpg", GL_RGB, GL_RGB, GL_REPEAT, GL_REPEAT, GL_NEAREST,
                                   GL_NEAREST, false);
    
+    basicShader.Bind();
     diffuseMap.SetTextureSlot(0);
     specularMap.SetTextureSlot(1);
     basicShader.SetUniform1i("material.diffuse", 0);
     basicShader.SetUniform1i("material.specular", 1);
     
+    basicShader.SetUniform1f("material.shininess", 32.0f);
+    basicShader.SetUniform3f("light.position", { 2.0f, 6.0f, 1.0f });
+    basicShader.SetUniform3f("light.ambient", { 0.4f, 0.4f, 0.4f });
+    basicShader.SetUniform3f("light.diffuse", { 0.5f, 0.5f, 0.5f });
+    basicShader.SetUniform3f("light.specular", { 1.0f, 1.0f, 1.0f });
 
-    glEnable(GL_DEPTH_TEST);
-    
-    game::Chunk* chunks[4][4];
-    for (int x = 0; x < 4; x++)
+#define X_CHUNKS 1
+#define Y_CHUNKS 1
+
+    game::Chunk* chunks[X_CHUNKS][Y_CHUNKS];
+    for (int x = 0; x < X_CHUNKS; x++)
     {
-        for (int y = 0; y < 4; y++)
+        for (int y = 0; y < Y_CHUNKS; y++)
         {
             chunks[x][y] = new game::Chunk(&manager);
         }
@@ -197,9 +209,9 @@ int main()
 
         window->Process();
 
-        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+        basicShader.Bind();
         glm::mat4 projection;
         projection = glm::perspective(glm::radians(camController.GetActiveCameraPointer()->GetFov()), 800.0f / 600.0f, 0.1f, 100.0f);
         basicShader.SetUniformMatrix4fv("projection", false, glm::value_ptr(projection));
@@ -207,22 +219,14 @@ int main()
         glm::mat4 view;
         view = glm::lookAt(camController.GetActiveCameraPointer()->GetPositionVector(), camController.GetActiveCameraPointer()->GetPositionVector() + camController.GetActiveCameraPointer()->GetDirectionVector(), glm::vec3(0.0f, 1.0f, 0.0f));
         basicShader.SetUniformMatrix4fv("view", false, glm::value_ptr(view));
-
-
-        //Draw Cubes
-        basicShader.Bind();
-        basicShader.SetUniform1f("material.shininess", 32.0f);
-        basicShader.SetUniform3f("light.position", { 2.0f, 6.0f, 1.0f });
-        basicShader.SetUniform3f("light.ambient", { 0.4f, 0.4f, 0.4f });
-        basicShader.SetUniform3f("light.diffuse", { 0.5f, 0.5f, 0.5f });
-        basicShader.SetUniform3f("light.specular", { 1.0f, 1.0f, 1.0f });
+        
         basicShader.SetUniform3f("viewPos", { camController.GetActiveCameraPointer()->GetPositionVector().x,camController.GetActiveCameraPointer()->GetPositionVector().y,camController.GetActiveCameraPointer()->GetPositionVector().z });
         
 
         glm::mat4 model;
-        for (int cx = 0; cx < 4; cx++)
+        for (int cx = 0; cx < X_CHUNKS; cx++)
         {
-            for (int cz = 0; cz < 4; cz++)
+            for (int cz = 0; cz < Y_CHUNKS; cz++)
             {
                 model = glm::mat4(1.0f);
                 model = glm::translate(model, glm::vec3(cx * 16, 0, cz * 16));
@@ -235,11 +239,8 @@ int main()
                 }
                 
                 vao->Bind();
-                glDrawElements(GL_TRIANGLES, vao->GetVertexCount(), GL_UNSIGNED_INT, nullptr);
+                glDrawArrays(GL_POINTS, 0, vao->GetVertexCount());
                 vao->Unbind();
-
-                
-
             }
         }
         basicShader.Unbind();

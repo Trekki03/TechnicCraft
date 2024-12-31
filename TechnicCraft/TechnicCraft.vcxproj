@@ -154,7 +154,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <None Include="ClassDiagram.cd" />
     <None Include="res\shader\basic.frag" />
+    <None Include="res\shader\basic.geom" />
     <None Include="res\shader\basic.vert" />
     <None Include="res\shader\lightSource.frag" />
     <None Include="res\textures\TextureAtlas.afphoto" />
